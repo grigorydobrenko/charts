@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import './App.css';
 import {getChartsTC} from "../store/reducers/charts-reducer";
 import {useAppDispatch} from "../hooks/hooks";
+import ChartsPage from "../pages/ChartsPage";
 
 function App() {
     const dispatch = useAppDispatch()
@@ -10,7 +11,7 @@ function App() {
     }, [dispatch])
     return (
         <div className="App">
-            charts
+            <ChartsPage/>
         </div>
     );
 }
