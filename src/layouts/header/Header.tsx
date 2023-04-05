@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Header.module.css'
 
 const Header = () => {
     return (
-        <header>
+        <header className={styles.header_container}>
             <button>2021</button>
             <button>2022</button>
             <button>2023</button>

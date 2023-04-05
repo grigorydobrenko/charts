@@ -58,7 +58,7 @@ type YearChartType = {
     vds_sub: PointType[],
 }
 
-type PointType = {
+export type PointType = {
     name: string,
     x: number,
     y: number

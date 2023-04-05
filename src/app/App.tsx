@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import './App.css';
 import {getChartsTC} from "../store/reducers/charts-reducer";
 import {useAppDispatch} from "../hooks/hooks";
 import ChartsPage from "../pages/ChartsPage";
@@ -10,7 +9,7 @@ function App() {
         dispatch(getChartsTC())
     }, [dispatch])
     return (
-        <div className="App">
+        <div>
             <ChartsPage/>
         </div>
     );
