@@ -1,6 +1,7 @@
 import {AppThunk} from "../store";
 import axios, {AxiosError} from "axios";
 import {chartsApi} from "../../service/charts-api";
+import {setAppStatusAC, Status} from "./app-reducer";
 
 const initial_year = '2021'
 
@@ -35,16 +36,21 @@ export const setYearAC = (year: SelectedYearType) =>
 export const getChartsTC = (): AppThunk => async (dispatch) => {
 
     try {
-        // dispatch(setAppStatusAC('loading'))
+        dispatch(setAppStatusAC(Status.LOADING))
+
         const response = await chartsApi.getCharts()
         const charts = response.data.volume_marginality_relation
+
         dispatch(setChartsAC(charts))
-        // dispatch(setAppStatusAC('succeeded'))
+        dispatch(setAppStatusAC(Status.SUCCEED))
     } catch (e) {
         const err = e as Error | AxiosError
         if (axios.isAxiosError(err)) {
             console.log(err)
         }
+        dispatch(setAppStatusAC(Status.FAILED))
+    } finally {
+        dispatch(setAppStatusAC(Status.IDLE))
     }
 }
 
