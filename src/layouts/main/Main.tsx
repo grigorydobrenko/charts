@@ -4,11 +4,10 @@ import Highcharts from 'highcharts';
 import {useAppSelector} from "../../hooks/hooks";
 import {PointType} from "../../store/reducers/charts-reducer";
 
-
 const Main = () => {
 
     const data = useAppSelector(state => state.charts.volume_marginality_relation)
-    const year = 2022
+    const year = useAppSelector(state => state.charts.selected_year)
 
     const wSub = data && data[year].vds_wsub
     const sub = data && data[year].vds_sub
@@ -21,6 +20,9 @@ const Main = () => {
             type: 'line',
             width: 1000,
             height: 600,
+        },
+        title: {
+            text: 'chart',
         },
         xAxis: {
             title: {
@@ -47,7 +49,7 @@ const Main = () => {
 
     return (
         <main>
-            <HighchartsReact highcharts={Highcharts} options={options}/>
+            <HighchartsReact highcharts={Highcharts} options={options} />
         </main>
     );
 };
