@@ -24,3 +24,8 @@
     outline-offset: 15px;
     /*text-shadow: 1px 1px 2px #427388;*/
 }
+
+.btn_active {
+    background-color: #90EE90;
+    color: #ffffff;
+}
