@@ -19,7 +19,7 @@ export const appReducer = (state = initialState, action: AppReducerActionsType):
     }
 }
 
-//  actions============================================================
+// actions============================================================
 
 export const setAppStatusAC = (status: Status) =>
     ({type: 'APP/SET-STATUS', status} as const)

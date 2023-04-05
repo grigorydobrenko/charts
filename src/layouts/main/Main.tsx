@@ -49,7 +49,7 @@ const Main = () => {
 
     return (
         <main>
-            <HighchartsReact highcharts={Highcharts} options={options} />
+            <HighchartsReact highcharts={Highcharts} options={options}/>
         </main>
     );
 };
